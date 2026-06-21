@@ -1,0 +1,16 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Protocol docs archive (large HTML file, not source)
+/docs/*
+
+# Transferred images (personal data, not source)
+images/
