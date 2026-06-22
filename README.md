@@ -2,6 +2,8 @@
 
 Transfers images from a Casio WQV-1 wrist camera to a modern Mac, without the original Windows-only WQV Link software.
 
+![Sample Image][sample.png]
+
 ## Hardware
 
 - **Casio WQV-1** wrist camera (module 2220)
