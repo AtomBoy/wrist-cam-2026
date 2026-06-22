@@ -331,8 +331,8 @@ def parse_image(raw: bytes) -> dict:
     hour   = raw[28]
     pixels = []
     for b in raw[29:29 + 7200]:
-        pixels.append(255 - ((b >> 4) & 0x0F) * 17)
         pixels.append(255 - ((b & 0x0F) * 17))
+        pixels.append(255 - ((b >> 4) & 0x0F) * 17)
     return dict(name=name, year=year, month=month, day=day,
                 hour=hour, minute=minute,
                 pixels=pixels[:IMAGE_WIDTH * IMAGE_HEIGHT])
@@ -367,6 +367,7 @@ def main():
             ts = f"{img['year']}{img['month']:02d}{img['day']:02d}_{img['hour']:02d}{img['minute']:02d}"
             name = img['name'] or f"img{index+1:03d}"
             stem = (out_dir / f"{ts}_{name}".replace('/', '-').replace(' ', '_'))
+            stem.with_suffix('.raw').write_bytes(raw_img)
             save_images(img, stem)
             log.info("  #%d  %r  %d-%02d-%02d %02d:%02d",
                      index + 1, img['name'], img['year'], img['month'],

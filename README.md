@@ -55,7 +55,7 @@ struct {
 };
 ```
 
-Pixels are stored as 4-bit nibbles, high nibble first. Values are **inverted** relative to display brightness (0 = white, 15 = black) — the transfer script applies `255 - value * 17` when decoding.
+Pixels are stored as 4-bit nibbles, low nibble first. Values are **inverted** relative to display brightness (0 = white, 15 = black) — the transfer script applies `255 - value * 17` when decoding. (Note: Gröber's documentation says high nibble first; this unit sends low nibble first.)
 
 ### Quirks of this specific watch
 

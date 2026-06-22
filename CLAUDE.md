@@ -39,7 +39,7 @@ The "upload all images" flow is:
 
 ## Image format
 
-Each image is 7229 bytes (`0x1C3D`): 24-byte name + 5 date/time bytes + 7200 bytes of 4-bit grayscale pixels (120×120, 2 pixels/byte, high nibble first). Pixel values are **inverted** — decode as `255 - nibble * 17`.
+Each image is 7229 bytes (`0x1C3D`): 24-byte name + 5 date/time bytes + 7200 bytes of 4-bit grayscale pixels (120×120, 2 pixels/byte, **low nibble first**). Pixel values are **inverted** — decode as `255 - nibble * 17`. (Gröber's doc says high nibble first; this unit sends low nibble first.)
 
 Output is PGM (P5 binary), one file per image, saved to `images/` as each image completes during transfer.
 
